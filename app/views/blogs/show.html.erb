@@ -1,0 +1,35 @@
+<br/>
+
+<div class="jumbotron">
+<% if notice%>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <p id="notice"><%= notice %></p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
+
+<p class="h2 text-center">
+  <strong>Title:</strong>
+  <%= @blog.title %>
+</p>
+
+<%= image_tag(@blog.image, style:'width:400px')%>
+
+<p>
+  <strong>User:</strong>
+  <%= @blog.user_id %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @blog.body %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_blog_path(@blog), class:'btn btn-success' %> 
+<%= link_to 'Back', blogs_path, class:'btn btn-dark'  %>
+
+</div>

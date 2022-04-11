@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+  <br/>
+  <ul class="list-unstyled container">
+    <% @blogs.each do |blog| %>
+
+    <li style='display: flex; width: 100%; border: 1px solid #d4d4d4; padding: 10px; border-radius: 5px; box-shadow: 10px 5px 20px #b4b4b4'>
+      <%= image_tag(blog.image, style:'width: 350px')%>
+      <div class="media-body", style='padding: 0 10px' >
+      <h4 class="mt-0 mb-1 display-5"><%= blog.title %></h4> 
+      <p style="height:140px; overflow: hidden; text-overflow: ellipsis"><%= blog.body %>...</p>
+      <div style="display: flex;justify-content: flex-start">
+    <%= link_to 'Read More', blog, class:'btn btn-primary', style:'margin:0 5px' %>
+    <%= link_to 'Edit', edit_blog_path(blog), class:'btn btn-success', style:'margin:0 5px'  %>
+    <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger', style:'margin:0 5px'  %>
+    </div>
+    </div>
+    </li>
+    <br/>
+    <% end %>
+</ul>
+<%=link_to '', new_blog_path, class:'btn btn-outline-success bi bi-plus', style:'font-size: 25px; border-radius:50%', data_toggle:"tooltip", data_placement:"right", title:"Create new blog."%>
+
+<br>
+
+
